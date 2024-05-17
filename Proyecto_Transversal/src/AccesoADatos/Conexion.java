@@ -1,34 +1,35 @@
 package AccesoADatos;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class Conexion {
-    private String url;
-    private String usuario;
-    private String password;
-    
-    private static Connection conexion = null;
-    
-    public Conexion(String url, String usr, String pass){
-        this.url = url;
-        usuario = usr;
-        password = pass;
+
+    private static final String url = "jdbc:mariadb://localhost/";
+    private static final String bd = "ulp";
+    private static final String usuario = "root";
+    private static final String password = "";
+    private static Connection connection;
+
+    private Conexion() {
     }
-    
-    public Connection buscarConexion() {
-        if (conexion == null) {
+
+    ;
+    public static Connection getConexion() {
+        if (connection == null) {
+
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
-                conexion = DriverManager.getConnection(url, usuario, password);
-            } catch (SQLException | ClassNotFoundException ex) {
-                System.out.println("No se puede conectar o no se puede cargar el driver");
+                connection = DriverManager.getConnection(url, usuario, password);
+                JOptionPane.showMessageDialog(null, "SE CONECTO EXITOSAMENTE A LA BD.");
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cargar los Driver.");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al conectarse a la base de Datos.");
             }
+
         }
-        return conexion;
+
+        return connection;
     }
 }
-        
-    
-

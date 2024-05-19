@@ -9,6 +9,7 @@ public class Proyecto_Transversal {
 
     public static void main(String[] args) {
 
+
         AlumnoData alu = new AlumnoData();
        
         //insertar alumnos
@@ -92,7 +93,6 @@ public class Proyecto_Transversal {
         }
         
         
-
     }
 
 }

@@ -5,8 +5,8 @@ package Entidades;
 
 public class Inscripcion {
     private int idInscripcion;
-    private Alumno alumno;
-    private Materia materia;
+    private Alumno idAlumno;
+    private Materia idMateria;
     private double nota;
     
     public Inscripcion(){
@@ -14,39 +14,39 @@ public class Inscripcion {
 
     public Inscripcion(int idIncripcion, Alumno alumno, Materia materia, double nota) {
         this.idInscripcion = idIncripcion;
-        this.alumno = alumno;
-        this.materia = materia;
+        this.idAlumno = alumno;
+        this.idMateria = materia;
         this.nota = nota;
     }
 
     public Inscripcion(Alumno alumno, Materia materia, double nota) {
-        this.alumno = alumno;
-        this.materia = materia;
+        this.idAlumno = alumno;
+        this.idMateria = materia;
         this.nota = nota;
     }
 
-    public int getIdIncripcion() {
+    public int getIdInscripcion() {
         return idInscripcion;
     }
 
-    public void setIdIncripcion(int idIncripcion) {
+    public void setIdInscripcion(int idIncripcion) {
         this.idInscripcion = idIncripcion;
     }
 
-    public Alumno getAlumno() {
-        return alumno;
+    public Alumno getIdAlumno() {
+        return idAlumno;
     }
 
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
+    public void setIdAlumno(Alumno alumno) {
+        this.idAlumno = alumno;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public Materia getIdMateria() {
+        return idMateria;
     }
 
-    public void setMateria(Materia materia) {
-        this.materia = materia;
+    public void setIdMateria(Materia materia) {
+        this.idMateria = materia;
     }
 
     public double getNota() {
@@ -59,7 +59,7 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        String insc=idInscripcion+" "+alumno.getApellido()+" "+alumno.getNombre()+" "+materia.getNombre();
+        String insc=idInscripcion+" "+idAlumno.getApellido()+" "+idAlumno.getNombre()+" "+idMateria.getNombre();
         return insc;
     }
     

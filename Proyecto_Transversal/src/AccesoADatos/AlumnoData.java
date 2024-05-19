@@ -4,19 +4,20 @@
  */
 package AccesoADatos;
 
+
 import Entidades.Alumno;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.mariadb.jdbc.Connection;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.mariadb.jdbc.Connection;
 
+/**
+ *
+ * @author emanu
+ */
 public class AlumnoData {
     
     private Connection con = null;
@@ -104,20 +105,20 @@ public class AlumnoData {
     
     public Alumno buscarAlumnoID(int id){
         
-        String sql="SELECT dni,apellido,nombre,fechaNacimiento FROM almuno WHERE idAlumno=? AND estado=1 ";
+        String sql="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
         Alumno alumno=null;
         
         try {
-            
-            
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 alumno = new Alumno();
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(id);
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
             }else{
@@ -125,7 +126,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
         
         return alumno;
@@ -133,19 +134,17 @@ public class AlumnoData {
     
     public Alumno buscarAlumnoDNI(int dni){
         
-        String sql="SELECT idAlumno,apellido,nombre,fechaNacimiento FROM almuno WHERE dni=? AND estado=1 ";
+        String sql="SELECT idAlumno,apellido,nombre,fechaNacimiento FROM alumno WHERE dni=? AND estado=1 ";
         Alumno alumno=null;
         
         try {
-           
-            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setDni(rs.getInt("dni"));
+                alumno.setDni(dni);
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
@@ -154,7 +153,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
         
         return alumno;
@@ -162,7 +161,7 @@ public class AlumnoData {
     
     public List<Alumno> listarAlumnos(){
         
-        String sql="SELECT idAlumnos,dni,apellido,nombre,fechaNacimiento FROM almuno WHERE estado=1 ";
+        String sql="SELECT idAlumno,dni,apellido,nombre,fechaNacimiento FROM alumno WHERE estado=1 ";
         ArrayList<Alumno> alumnos= new ArrayList<>(); 
         
         try {
@@ -175,6 +174,7 @@ public class AlumnoData {
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
                 
@@ -182,9 +182,10 @@ public class AlumnoData {
             } 
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
         
         return alumnos;
     }
+    
 }

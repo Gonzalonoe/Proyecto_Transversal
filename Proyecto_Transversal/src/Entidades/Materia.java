@@ -5,8 +5,8 @@ package Entidades;
 public class Materia {
   private int idMateria;
   private String nombre;
-  private int anioMateria;
-  private boolean activo;
+  private int año;
+  private boolean estado;
 
     public Materia() {
     }
@@ -14,14 +14,14 @@ public class Materia {
     public Materia(int idMateria, String nombre, int anioMateria, boolean activo) {
         this.idMateria = idMateria;
         this.nombre = nombre;
-        this.anioMateria = anioMateria;
-        this.activo = activo;
+        this.año = año;
+        this.estado = activo;
     }
 
     public Materia(String nombre, int anioMateria, boolean activo) {
         this.nombre = nombre;
-        this.anioMateria = anioMateria;
-        this.activo = activo;
+        this.año = año;
+        this.estado = activo;
     }
 
     public int getIdMateria() {
@@ -40,25 +40,25 @@ public class Materia {
         this.nombre = nombre;
     }
 
-    public int getAnioMateria() {
-        return anioMateria;
+    public int getAño() {
+        return año;
     }
 
-    public void setAnioMateria(int anioMateria) {
-        this.anioMateria = anioMateria;
+    public void setAño(int anioMateria) {
+        this.año = anioMateria;
     }
 
-    public boolean isActivo() {
-        return activo;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setEstado(boolean activo) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anioMateria=" + anioMateria + ", activo=" + activo + '}';
+        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anioMateria=" + año + ", activo=" + estado + '}';
     }
 
 

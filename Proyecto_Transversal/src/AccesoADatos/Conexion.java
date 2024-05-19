@@ -1,35 +1,39 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package AccesoADatos;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class Conexion {
-
-    private static final String url = "jdbc:mariadb://localhost/";
-    private static final String bd = "ulp";
-    private static final String usuario = "root";
-    private static final String password = "";
+    
+    private static final String URL="jdbc:mariadb://localhost:3306/";
+    private static final String DB="universidadgrupo7";
+    private static final String USUARIO = "root";
+    private static final String PASSWORD= "";
     private static Connection connection;
-
-    private Conexion() {
-    }
-
-    ;
+    
+    private Conexion() {}
+    
     public static Connection getConnection() {
         if (connection == null) {
-
             try {
+
                 Class.forName("org.mariadb.jdbc.Driver");
-                connection = DriverManager.getConnection(url, usuario, password);
-                JOptionPane.showMessageDialog(null, "SE CONECTO EXITOSAMENTE A LA BD.");
+
+                connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+
             } catch (ClassNotFoundException ex) {
-                JOptionPane.showMessageDialog(null, "Error al cargar los Driver.");
+                JOptionPane.showMessageDialog(null, "error a cargar driver " + ex.getMessage());
+
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Error al conectarse a la base de Datos.");
+                JOptionPane.showMessageDialog(null, "error de conexion" + ex.getMessage());
+
             }
-
         }
-
         return connection;
     }
+    
 }

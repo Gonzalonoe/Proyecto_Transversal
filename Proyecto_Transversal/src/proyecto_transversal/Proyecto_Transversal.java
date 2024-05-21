@@ -2,7 +2,10 @@ package proyecto_transversal;
 
 import AccesoADatos.AlumnoData;
 import AccesoADatos.Conexion;
+import AccesoADatos.InscripcionData;
+import AccesoADatos.MateriaData;
 import Entidades.Alumno;
+import Entidades.Inscripcion;
 import java.sql.Connection;
 
 public class Proyecto_Transversal {
@@ -86,13 +89,121 @@ public class Proyecto_Transversal {
      
         //listar alumnos
       
-        for (Alumno alumno: alu.listarAlumnos()) {
-            
-            System.out.println(alumno.toString());
-            
-        }
-        
-        
-    }
+//        for (Alumno alumno: alu.listarAlumnos()) {
+//            
+//            System.out.println(alumno.toString());
+//            
+//        }
+      
+MateriaData md = new MateriaData();
 
+        //insertar materias
+       
+//        Materia mat = new Materia("Matematicas", 2024, false);
+//        Materia lab = new Materia("Laboratorio de Programacion", 2024, true);
+//        Materia eda = new Materia("Estructura de Datos", 2024, false);
+//        Materia web = new Materia("Programacion WEB", 2024, true);
+//        Materia ing = new Materia("Ingles", 2024, false);
+//        
+//        md.guardarMateria(mat);
+//        md.guardarMateria(lab);
+//        md.guardarMateria(eda);
+//        md.guardarMateria(web);
+//        md.guardarMateria(ing);  
+        
+        //modificar materias
+        
+//        Materia mat = new Materia(1,"Matematicas", 2024, true);
+//        Materia lab = new Materia(3,"Estructura de datos (EDA)", 2024, true);
+//        Materia eda = new Materia(5,"Ingles", 2024, true);
+//        
+//        md.modificarMateria(mat);
+//        md.modificarMateria(lab);
+//        md.modificarMateria(eda);
+//        
+        //buscar materias
+        
+//        Materia materiaEncontrada = md.buscarMateria(1);
+//        System.out.println(materiaEncontrada.toString());
+//        materiaEncontrada = md.buscarMateria(5);
+//        System.out.println(materiaEncontrada.toString());
+
+        //eliminar materia
+        
+//        md.eliminarMateria(5);
+
+        //listar materias
+        
+//        for (Materia materia: md.listarMaterias()) {
+//            
+//            System.out.println(materia.toString());
+//            
+//        }
+
+        InscripcionData id = new InscripcionData();
+
+        // guardar inscripcion a materia
+        
+//        Alumno pedro = alu.buscarAlumnoID(3);
+//        Alumno luis = alu.buscarAlumnoID(7);
+//        Alumno maria = alu.buscarAlumnoID(2);
+//        Materia mate = md.buscarMateria(2);
+//        Inscripcion insc;
+//        insc = new Inscripcion(pedro, mate, 9);
+//        id.guardarInscripcion(insc);
+//        insc = new Inscripcion(luis, mate, 6);
+//        id.guardarInscripcion(insc);
+//        insc = new Inscripcion(maria, mate, 7);
+//        id.guardarInscripcion(insc);
+        
+        //actualizar notas
+//        id.actualizarNota(7,2,7);
+//        id.actualizarNota(3, 2, 9);
+        
+        //borrar inscripcion
+//        id.borrarInscripcionMateriaAlumno(2, 2);
+        
+        // obtener inscripciones
+        
+//        for (Inscripcion inscrip: id.obtenerInscripciones()) {
+//            System.out.println("ID Inscripto " + inscrip.getIdInscripcion());
+//            System.out.println("Apellido " + inscrip.getIdAlumno().getApellido());
+//            System.out.println("Nombre " + inscrip.getIdAlumno().getNombre());
+//            System.out.println("Materia " + inscrip.getIdMateria().getNombre());
+//        }
+      
+        //obtener inscripciones por alumno
+       
+//        for (Inscripcion inscrip: id.obtenerInscripcionesPorAlumno(7)) {
+//            System.out.println("ID Inscripto " + inscrip.getIdInscripcion());
+//            System.out.println("Apellido " + inscrip.getIdAlumno().getApellido());
+//            System.out.println("Nombre " + inscrip.getIdAlumno().getNombre());
+//            System.out.println("Materia " + inscrip.getIdMateria().getNombre());
+//        }
+
+        // obtener materias cursadas
+       
+//        for (Materia mat: id.obtenerMateriasCursadas(3)) {
+//            System.out.println("Materia " + mat.getNombre());
+//            System.out.println("Año "+ mat.getAño());
+//            
+//            
+//        }
+      
+       //obtener materias no cursadas
+//       
+//       for (Materia mat: id.obtenerMateriasNoCursadas(3)) {
+//            System.out.println("Materia " + mat.getNombre());
+//            System.out.println("Año "+ mat.getAño());
+//   
+//        }
+
+        //listar alumnos por materia
+        
+//        for (Alumno al: id.obtenerAlumnosPorMateria(2)) {
+//            System.out.println(al.toString());
+//       }
+
+    }
+    
 }

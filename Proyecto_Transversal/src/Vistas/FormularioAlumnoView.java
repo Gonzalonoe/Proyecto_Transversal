@@ -305,7 +305,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
          jtfApellido.setText("");
          jtfNombre.setText("");
          jrbEstado.setSelected(true);
-         jcFechaNac.setDate(new Date(1));
+         jcFechaNac.setDate(new Date(WIDTH));
          
      }
      

@@ -6,6 +6,7 @@ package Vistas;
 
 import AccesoADatos.MateriaData;
 import Entidades.Materia;
+import javax.swing.JOptionPane;
 
 
 
@@ -79,6 +80,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-eliminar-40.png"))); // NOI18N
         jbEliminar.setText("Eliminar");
         jbEliminar.setEnabled(false);
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-guardar-40.png"))); // NOI18N
         jbGuardar.setText("Guardar");
@@ -185,7 +191,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             
             jtNombre.setText(matActual.getNombre());
             jtAño.setText(matActual.getAño()+"");
-           
+            jrbEstado.setSelected(matActual.isEstado());
 
         }
     
@@ -199,6 +205,24 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+      
+        if (matActual!=null) {
+          matData.eliminarMateria(matActual.getIdMateria());
+          matActual=null;
+          limpiarCampos();
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay una Materia seleccionada");
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void limpiarCampos(){
+        
+        jtCodigo.setText("");
+        jtNombre.setText("");
+        jtAño.setText("");
+        jrbEstado.setSelected(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

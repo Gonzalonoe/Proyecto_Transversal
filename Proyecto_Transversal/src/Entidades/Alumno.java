@@ -14,15 +14,17 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(String apellido, String nombre, LocalDate fechadenacimiento, boolean estado) {
+    public Alumno(int dni,String apellido, String nombre, LocalDate fechadenacimiento, boolean estado) {
+        this.dni=dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechadenacimiento = fechadenacimiento;
         this.estado = estado;
     }
 
-    public Alumno(int idAlumno, String apellido, String nombre, LocalDate fechadenacimiento, boolean estado) {
+    public Alumno(int idAlumno,int dni, String apellido, String nombre, LocalDate fechadenacimiento, boolean estado) {
         this.idAlumno = idAlumno;
+        this.dni=dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechadenacimiento = fechadenacimiento;
@@ -79,7 +81,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno id:" + idAlumno + ", Apellido:" + apellido + ", Nombre:" + nombre + ", Fecha de nacimiento:" + fechadenacimiento + ", Estado:" + estado;
+        return dni+", "+apellido+", "+nombre;
     }
 
 }

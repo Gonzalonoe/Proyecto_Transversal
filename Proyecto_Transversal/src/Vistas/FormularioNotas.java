@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author emanu
  */
-public class FormulariosNotas extends javax.swing.JInternalFrame {
+public class FormularioNotas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FormulariosNotas
      */
-    public FormulariosNotas() {
+    public FormularioNotas() {
         initComponents();
     }
 
@@ -67,6 +67,11 @@ public class FormulariosNotas extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,6 +138,10 @@ public class FormulariosNotas extends javax.swing.JInternalFrame {
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

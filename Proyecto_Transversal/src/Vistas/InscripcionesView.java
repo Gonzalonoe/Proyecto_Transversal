@@ -39,10 +39,6 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
         jBsalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
-
         jLabel1.setText("Seleccione un alumno:");
 
         jClistaalumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -81,6 +77,11 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
         jBanular.setText("Anular Inscipcion");
 
         jBsalir.setText("Salir");
+        jBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsalirActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Formulario de Inscripcion");
 
@@ -169,6 +170,10 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
     private void jBinscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBinscribirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBinscribirActionPerformed
+
+    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jBsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

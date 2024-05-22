@@ -58,9 +58,6 @@ public class AlumnoPorMateriasView extends javax.swing.JInternalFrame {
         );
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
 
         jLabel2.setText("Listado de Alumnoss por Materia");
 
@@ -143,7 +140,7 @@ public class AlumnoPorMateriasView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        // TODO add your handling code here:
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jBSalirActionPerformed
 
 

@@ -6,6 +6,7 @@ import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Inscripcion;
+import Entidades.Materia;
 import java.sql.Connection;
 
 public class Proyecto_Transversal {
@@ -123,10 +124,10 @@ MateriaData md = new MateriaData();
 //        
         //buscar materias
         
-//        Materia materiaEncontrada = md.buscarMateria(1);
-//        System.out.println(materiaEncontrada.toString());
-//        materiaEncontrada = md.buscarMateria(5);
-//        System.out.println(materiaEncontrada.toString());
+        Materia materiaEncontrada = md.buscarMateria(1);
+        System.out.println(materiaEncontrada.toString());
+        materiaEncontrada = md.buscarMateria(5);
+        System.out.println(materiaEncontrada.toString());
 
         //eliminar materia
         

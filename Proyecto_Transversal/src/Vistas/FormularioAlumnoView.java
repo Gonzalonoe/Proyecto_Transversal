@@ -230,6 +230,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfApellidoActionPerformed
 
     private void jbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtGuardarActionPerformed
+      
        if (alumnoActual!=null) {
        Integer dni=Integer.parseInt(jtfalumnoDni.getText()); 
        String nombre = jtfNombre.getText();

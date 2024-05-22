@@ -76,6 +76,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-carpeta-educativa-40.png"))); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.setEnabled(false);
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-eliminar-40.png"))); // NOI18N
         jbEliminar.setText("Eliminar");
@@ -88,6 +93,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-guardar-40.png"))); // NOI18N
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-señal-de-salida-40.png"))); // NOI18N
         jbSalir.setText("Salir");
@@ -191,10 +201,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             
             jtNombre.setText(matActual.getNombre());
             jtAño.setText(matActual.getAño()+"");
-            jrbEstado.setSelected(matActual.isEstado());
+            jrbEstado.setSelected(true);
 
         }
-    
+         jbNuevo.setEnabled(true);
+         jbEliminar.setEnabled(true);
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
@@ -215,6 +226,39 @@ dispose();        // TODO add your handling code here:
             JOptionPane.showMessageDialog(null, "No hay una Materia seleccionada");
         }
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+            limpiarCampos();
+            matActual=null;        
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+       
+       if (matActual!=null) {
+       Integer id=Integer.parseInt(jtCodigo.getText()); 
+       String nombre = jtNombre.getText();
+       Integer año = Integer.parseInt(jtAño.getText());
+        if (nombre.isEmpty() || año==null) {
+            JOptionPane.showMessageDialog(null, "No puede haber campos vacios");
+            return;
+        }
+        Boolean estado = jrbEstado.isSelected();
+        
+        if(matActual==null){
+            matActual=new Materia(id,nombre, año, estado);
+            matData.guardarMateria(matActual);
+        }else{
+            matActual.setIdMateria(id);
+            matActual.setNombre(nombre);
+            matActual.setAño(año);
+            matActual.setEstado(estado);
+            matData.modificarMateria(matActual);
+            
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay un Alumno seleccionado");
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void limpiarCampos(){
         

@@ -198,7 +198,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
       
       
       for( Inscripcion ins : listaIsnc){
-            modelo.addRow(new Object[] {ins.getIdMateria().getIdMateria(),ins.getIdMateria().getNombre(),ins.getNota()});
+            modelo.addRow(new Object[] {ins.getMateria().getIdMateria(),ins.getMateria().getNombre(),ins.getNota()});
         }
       
      

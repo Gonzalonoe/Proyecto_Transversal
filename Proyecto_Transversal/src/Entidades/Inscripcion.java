@@ -5,8 +5,8 @@ package Entidades;
 
 public class Inscripcion {
     private int idInscripcion;
-    private Alumno idAlumno;
-    private Materia idMateria;
+    private Alumno alumno;
+    private Materia materia;
     private double nota;
     
     public Inscripcion(){
@@ -14,14 +14,14 @@ public class Inscripcion {
 
     public Inscripcion(int idIncripcion, Alumno alumno, Materia materia, double nota) {
         this.idInscripcion = idIncripcion;
-        this.idAlumno = alumno;
-        this.idMateria = materia;
+        this.alumno = alumno;
+        this.materia = materia;
         this.nota = nota;
     }
 
     public Inscripcion(Alumno alumno, Materia materia, double nota) {
-        this.idAlumno = alumno;
-        this.idMateria = materia;
+        this.alumno = alumno;
+        this.materia = materia;
         this.nota = nota;
     }
 
@@ -33,20 +33,20 @@ public class Inscripcion {
         this.idInscripcion = idIncripcion;
     }
 
-    public Alumno getIdAlumno() {
-        return idAlumno;
+    public Alumno getAlumno() {
+        return alumno;
     }
 
-    public void setIdAlumno(Alumno alumno) {
-        this.idAlumno = alumno;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
-    public Materia getIdMateria() {
-        return idMateria;
+    public Materia getMateria() {
+        return materia;
     }
 
-    public void setIdMateria(Materia materia) {
-        this.idMateria = materia;
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 
     public double getNota() {
@@ -59,7 +59,7 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        String insc=idInscripcion+" "+idAlumno.getApellido()+" "+idAlumno.getNombre()+" "+idMateria.getNombre();
+        String insc=idInscripcion+" "+alumno.getApellido()+" "+alumno.getNombre()+" "+materia.getNombre();
         return insc;
     }
     

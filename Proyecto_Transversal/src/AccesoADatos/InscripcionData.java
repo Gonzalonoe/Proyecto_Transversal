@@ -46,8 +46,8 @@ public class InscripcionData {
            
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setDouble(1, insc.getNota());
-            ps.setInt(2, insc.getIdAlumno().getIdAlumno());
-            ps.setInt(3, insc.getIdMateria().getIdMateria());
+            ps.setInt(2, insc.getAlumno().getIdAlumno());
+            ps.setInt(3, insc.getMateria().getIdMateria());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -123,9 +123,9 @@ public class InscripcionData {
                 Inscripcion insc = new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
                 Alumno alu = ad.buscarAlumnoID(rs.getInt("idAlumno"));
-                insc.setIdAlumno(alu);
+                insc.setAlumno(alu);
                 Materia m = (Materia) md.buscarMateria(rs.getInt("idMateria"));
-                insc.setIdMateria(m);
+                insc.setMateria(m);
                 insc.setNota(rs.getDouble("nota"));
                 
                 cursadas.add(insc);
@@ -157,9 +157,9 @@ public class InscripcionData {
                 Inscripcion insc = new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
                 Alumno alu = ad.buscarAlumnoID(rs.getInt("idAlumno"));
-                insc.setIdAlumno(alu);
+                insc.setAlumno(alu);
                 Materia m = (Materia) md.buscarMateria(rs.getInt("idMateria"));
-                insc.setIdMateria(m);
+                insc.setMateria(m);
                 insc.setNota(rs.getDouble("nota"));
                 
                 cursadas.add(insc);

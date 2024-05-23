@@ -28,6 +28,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private Alumno alumnoActual = null;
     private InscripcionData inscData = new InscripcionData();
     private Inscripcion inscActual;
+    private MateriaData matData;
     
     private DefaultTableModel modelo;
     
@@ -36,7 +37,16 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         
         aluData=new AlumnoData();
         listaAlu =aluData.listarAlumnos();
-        modelo = new DefaultTableModel();
+        modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row,int column){
+                if (column==2) {
+                    return true;
+                }else{
+                    return false;
+                }     
+            }
+        };
         inscData = new InscripcionData();
         
         cargarAlumnos();
@@ -167,8 +177,9 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
              
             Alumno a = (Alumno) jClistaralumnos.getSelectedItem();
             
-            int idMateria= (int) modelo.getValueAt(filaSelecionada, 0);
-            double nota = (double) modelo.getValueAt(filaSelecionada, 2);
+            Integer idMateria= (Integer) modelo.getValueAt(filaSelecionada, 0);
+            
+            Double nota = Double.parseDouble(modelo.getValueAt(filaSelecionada, 2).toString());
             
             inscData.actualizarNota(a.getIdAlumno(), idMateria, nota);
             
@@ -187,7 +198,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
       
       
       for( Inscripcion ins : listaIsnc){
-            modelo.addRow(new Object[] {ins.getIdInscripcion(),ins.getIdMateria().getNombre(),ins.getNota()});
+            modelo.addRow(new Object[] {ins.getIdMateria().getIdMateria(),ins.getIdMateria().getNombre(),ins.getNota()});
         }
       
      

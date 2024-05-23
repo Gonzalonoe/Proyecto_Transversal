@@ -318,6 +318,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         Matcher matcher = pattern.matcher(numero);
         return matcher.matches();
     }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

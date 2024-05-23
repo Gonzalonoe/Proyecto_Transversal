@@ -158,8 +158,8 @@ MateriaData md = new MateriaData();
 //        id.guardarInscripcion(insc);
         
         //actualizar notas
-//        id.actualizarNota(7,2,10);
-//        id.actualizarNota(3, 2, 9);
+        id.actualizarNota(1,5,9.0);
+        id.actualizarNota(3, 2, 8.5);
         
         //borrar inscripcion
 //        id.borrarInscripcionMateriaAlumno(2, 2);

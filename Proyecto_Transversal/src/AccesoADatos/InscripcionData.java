@@ -155,7 +155,7 @@ public class InscripcionData {
             while (rs.next()) {
                 
                 Inscripcion insc = new Inscripcion();
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
                 Alumno alu = ad.buscarAlumnoID(rs.getInt("idAlumno"));
                 insc.setIdAlumno(alu);
                 Materia m = (Materia) md.buscarMateria(rs.getInt("idMateria"));
@@ -177,10 +177,10 @@ public class InscripcionData {
        
         ArrayList<Materia> cursadas = new ArrayList<>();
             
-            String sql="SELECT inscripcion.idMateria, nombre ,año "
-                    + "FROM inscripcion,materia"
-                    + " WHERE inscripcion.idMateria = materia.idMateria"
-                    + "AND inscripcion.idAlumno = ? ";
+            String sql="SELECT inscripcion.idMateria, nombre, año " +
+             "FROM inscripcion, materia " +
+             "WHERE inscripcion.idMateria = materia.idMateria " +
+             "AND inscripcion.idAlumno = ?";
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -240,7 +240,7 @@ public class InscripcionData {
         ArrayList<Alumno> alumnos = new ArrayList<>();
             
             String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado "
-                    + "FROM iscripcion i, alumno a WHERE a.idAlumno = a.idAlumno AND idMateria = ? "
+                    + "FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? "
                     + "AND estado=1;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -252,7 +252,7 @@ public class InscripcionData {
                 
                 Alumno al = new Alumno();
                 al.setIdAlumno(rs.getInt("idAlumno"));
-                al.setIdAlumno(rs.getInt("dni"));
+                al.setDni(rs.getInt("dni"));
                 al.setNombre(rs.getString("nombre"));
                 al.setApellido(rs.getString("apellido"));
                 al.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());

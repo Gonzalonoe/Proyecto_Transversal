@@ -64,6 +64,8 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
 
+        setTitle("Formulario de Inscripcion");
+
         jLabel1.setText("Seleccione un alumno");
 
         jrNoInscriptas.setText("Materias NO Inscriptas");
@@ -199,7 +201,8 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
-       int filaSelecionada = jtInscripcion.getSelectedRow();
+     
+        int filaSelecionada = jtInscripcion.getSelectedRow();
        
         if (filaSelecionada!=-1) {
             
@@ -221,6 +224,7 @@ dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jrInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrInscriptasActionPerformed
+       
         borrarFilas();
         jrNoInscriptas.setSelected(false);
         cargarDatosIscrpitas();
@@ -230,10 +234,10 @@ dispose();        // TODO add your handling code here:
 
     private void jrNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrNoInscriptasActionPerformed
         borrarFilas();
-        jrNoInscriptas.setSelected(true);
+        jrInscriptas.setSelected(false);
         cargarDatosNoIscrpitas();
-        jbAnularInsc.setEnabled(true);
-        jbInscribir.setEnabled(false);
+        jbAnularInsc.setEnabled(false);
+        jbInscribir.setEnabled(true);
     }//GEN-LAST:event_jrNoInscriptasActionPerformed
 
     private void jbAnularInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscActionPerformed
@@ -269,7 +273,7 @@ dispose();        // TODO add your handling code here:
     }
     
     private void borrarFilas(){
-        int indice = modelo.getRowCount();
+        int indice = modelo.getRowCount()-1;
         
         for (int i = indice; i >=0; i--) {
             modelo.removeRow(i);
@@ -279,7 +283,7 @@ dispose();        // TODO add your handling code here:
     private void cargarDatosNoIscrpitas(){
         Alumno selec= (Alumno) jcbAlumnos.getSelectedItem();
         
-        listaMat = (ArrayList) inscData.obtenerMateriasNoCursadas(selec.getIdAlumno());
+        listaMat = inscData.obtenerMateriasNoCursadas(selec.getIdAlumno());
         
         for( Materia m : listaMat){
             modelo.addRow(new Object[] {m.getIdMateria(),m.getNombre(), m.getAño()});
@@ -290,7 +294,7 @@ dispose();        // TODO add your handling code here:
      private void cargarDatosIscrpitas(){
         Alumno selec= (Alumno) jcbAlumnos.getSelectedItem();
         
-        listaMat = (ArrayList) inscData.obtenerMateriasCursadas(selec.getIdAlumno());
+        listaMat = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
         
         for( Materia m : listaMat){
             modelo.addRow(new Object[] {m.getIdMateria(),m.getNombre(), m.getAño()});

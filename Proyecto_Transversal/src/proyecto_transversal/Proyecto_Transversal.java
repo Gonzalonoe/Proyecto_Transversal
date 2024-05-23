@@ -124,10 +124,10 @@ MateriaData md = new MateriaData();
 //        
         //buscar materias
         
-        Materia materiaEncontrada = md.buscarMateria(1);
-        System.out.println(materiaEncontrada.toString());
-        materiaEncontrada = md.buscarMateria(5);
-        System.out.println(materiaEncontrada.toString());
+//        Materia materiaEncontrada = md.buscarMateria(1);
+//        System.out.println(materiaEncontrada.toString());
+//        materiaEncontrada = md.buscarMateria(5);
+//        System.out.println(materiaEncontrada.toString());
 
         //eliminar materia
         
@@ -158,7 +158,7 @@ MateriaData md = new MateriaData();
 //        id.guardarInscripcion(insc);
         
         //actualizar notas
-//        id.actualizarNota(7,2,7);
+//        id.actualizarNota(7,2,10);
 //        id.actualizarNota(3, 2, 9);
         
         //borrar inscripcion
